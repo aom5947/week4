@@ -1,0 +1,175 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #2e3a59;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ปุ่มต่างๆ */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* ช่องกรอกข้อมูล */
+input[type="number"],
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* ฟอร์ม */
+form {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-weight: bold;
+}
+
+/* To-Do List */
+#taskList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#taskList li {
+    background-color: #fff;
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#taskList li:hover {
+    transform: scale(1.03);
+}
+
+#taskList li button {
+    background-color: #e74c3c;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#taskList li button:hover {
+    background-color: #c0392b;
+}
+
+/* ส่วนของข้อความผลลัพธ์ */
+#lotteryNumber,
+#result,
+#ageResult {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#lotteryNumber,
+#result {
+    color: #2980b9;
+}
+
+#ageResult {
+    color: #27ae60;
+}
+
+/* ส่วนของการจัดการกับพื้นที่วงกลม, เลขคู่/คี่, และ GPA */
+hr {
+    margin: 30px 0;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    text-align: center;
+}
+
+/* เพิ่ม effect สำหรับปุ่มทั้งหมด */
+button {
+    display: block;
+    margin: 15px auto;
+}
+
+/* เพิ่มพื้นหลังสำหรับการเน้น */
+section {
+    padding: 20px;
+    background-color: #ffffff;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+/* การตั้งค่าภายในของปุ่ม */
+button {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 15px auto;
+}
+
+/* เพิ่มการทำให้มีเอฟเฟคเงา */
+input[type="text"], input[type="email"], input[type="number"] {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}

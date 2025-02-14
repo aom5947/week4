@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟังก์ชัน JavaScript ตัวอย่าง</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>แบบทดสอบ</h1>
+
+    <!-- ส่วนสำหรับเปลี่ยนสีพื้นหลัง -->
+    <button id="changeColorBtn">เปลี่ยนสีพื้นหลัง</button>
+
+    <hr>
+
+    <!-- ส่วนสำหรับตรวจสอบอายุ -->
+    <input type="number" id="ageInput" placeholder="กรุณากรอกอายุ" />
+    <button onclick="checkAge()">ตรวจสอบอายุ</button>
+    <p id="ageResult"></p>
+
+    <hr>
+
+    <!-- ฟอร์มตรวจสอบอีเมล -->
+    <form id="userForm">
+        <label for="email">กรอกอีเมล:</label>
+        <input type="email" id="email" placeholder="Email" required />
+        <button type="submit">ส่งข้อมูล</button>
+    </form>
+
+    <hr>
+
+    <!-- ส่วนสำหรับ To-Do List -->
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="เพิ่มงานที่ต้องทำ" />
+    <button id="addTaskBtn">เพิ่มงาน</button>
+    <ul id="taskList"></ul>
+
+    <hr>
+
+    <!-- ฟังก์ชันคำนวณพื้นที่วงกลม -->
+    <button onclick="calculateCircleArea()">คำนวณพื้นที่วงกลม</button>
+
+    <hr>
+
+    <!-- ฟังก์ชันตรวจสอบเลขคู่/คี่ -->
+    <button onclick="checkEvenOdd()">ตรวจสอบเลขคู่/คี่</button>
+
+    <hr>
+
+    <!-- ฟังก์ชันสำหรับตรวจสอบและทายเลขหวย -->
+    <button id="generateLotteryBtn">สุ่มเลขหวย</button>
+    <p id="lotteryNumber">เลขที่ออก: </p>
+    <input type="text" id="userGuess" placeholder="กรอกเลขที่ทาย" />
+    <button id="checkGuessBtn">ตรวจสอบผลทาย</button>
+    <p id="result"></p>
+
+    <hr>
+
+    <!-- ฟังก์ชันคำนวณ GPA -->
+    <button onclick="calculateGPA()">คำนวณเกรดเฉลี่ย (GPA)</button>
+
+    <hr>
+
+    <!-- แสดงข้อมูลผู้ใช้จาก API -->
+    <h2>ข้อมูลผู้ใช้จาก API</h2>
+    <button onclick="fetchUsers()">โหลดข้อมูลผู้ใช้</button>
+    <div id="userList"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
