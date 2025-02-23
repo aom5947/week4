@@ -125,13 +125,39 @@ function calculateCircleArea() {
 
 // ตรวจสอบเลขคู่/คี่
 function checkEvenOdd() {
-    let number = parseInt(prompt("กรุณากรอกตัวเลข:"));
-    if (number % 2 === 0) {
-        alert("เลขนี้เป็นเลขคู่");
-    } else {
-        alert("เลขนี้เป็นเลขคี่");
+    let number;
+    
+    while (true) {
+        let input = prompt("กรุณากรอกตัวเลข:");
+
+        // เช็คว่าผู้ใช้กด Cancel หรือไม่
+        if (input === null) {
+            alert("ยกเลิกการทำงาน");
+            return;
+        }
+
+        // แปลงค่าเป็นตัวเลข
+        number = parseInt(input);
+
+        // ตรวจสอบว่าค่าที่รับมาถูกต้องหรือไม่
+        if (!isNaN(number)) {
+            break;
+        }
+
+        // แจ้งเตือนให้กรอกค่าใหม่
+        let retry = confirm("กรุณากรอกตัวเลขที่ถูกต้อง! ต้องการลองอีกครั้งหรือไม่?");
+        if (!retry) {
+            return;
+        }
     }
+
+    // ตรวจสอบเลขคู่/คี่
+    let result = (number % 2 === 0) ? "เลขนี้เป็นเลขคู่" : "เลขนี้เป็นเลขคี่";
+    
+    // แสดงผลลัพธ์
+    alert(result);
 }
+
 
 // ระบบสุ่มเลขหวย
 let lotteryNumber = "";
@@ -171,19 +197,37 @@ function calculateGPA() {
 
     let totalCredits = 0;
     let totalGradePoints = 0;
+    let gradeDetails = [];
+
+    // ฟังก์ชันแปลงคะแนนเป็นเกรดและค่า GPA
+    function getGradePoint(score) {
+        if (score >= 80) return { grade: "A", gpa: 4.0 };
+        if (score >= 75) return { grade: "B+", gpa: 3.5 };
+        if (score >= 70) return { grade: "B", gpa: 3.0 };
+        if (score >= 65) return { grade: "C+", gpa: 2.5 };
+        if (score >= 60) return { grade: "C", gpa: 2.0 };
+        if (score >= 55) return { grade: "D+", gpa: 1.5 };
+        if (score >= 50) return { grade: "D", gpa: 1.0 };
+        return { grade: "F", gpa: 0.0 };
+    }
 
     subjects.forEach(function(subject) {
-        let grade = parseFloat(prompt(`กรุณากรอกคะแนนวิชา ${subject.code}:`));
-        while (grade < 0 || grade > 100 || isNaN(grade)) {
-            grade = parseFloat(prompt(`กรุณากรอกคะแนนวิชา ${subject.code} (0-100):`));
+        let score = parseFloat(prompt(`กรุณากรอกคะแนนวิชา ${subject.code} (0-100):`));
+        while (score < 0 || score > 100 || isNaN(score)) {
+            score = parseFloat(prompt(`กรุณากรอกคะแนนวิชา ${subject.code} (0-100):`));
         }
+
+        let { grade, gpa } = getGradePoint(score);
         totalCredits += subject.credits;
-        totalGradePoints += grade * subject.credits;
+        totalGradePoints += gpa * subject.credits;
+        gradeDetails.push(`${subject.code}: คะแนน ${score} → เกรด ${grade} (GPA: ${gpa})`);
     });
 
     let GPA = totalGradePoints / totalCredits;
-    alert("เกรดเฉลี่ย (GPA) ของคุณคือ: " + GPA.toFixed(2));
+    
+    alert(`🔹 รายละเอียดเกรด 🔹\n\n${gradeDetails.join("\n")}\n\n📌 เกรดเฉลี่ยรวม (GPA): ${GPA.toFixed(2)}`);
 }
+
 
 // ดึงข้อมูลจาก API และแสดงผล
 async function fetchUsers() {
