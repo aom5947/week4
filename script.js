@@ -13,32 +13,36 @@ function getRandomColor() {
 
 // ตรวจสอบอายุ
 function checkAge() {
-    let age = document.getElementById("ageInput").value;
+    let ageInput = document.getElementById("ageInput").value.trim(); // ตัดช่องว่างออก
+    let age = parseInt(ageInput, 10);
     let result = "";
 
-    if (age < 13) {
+    // ตรวจสอบว่าเป็นตัวเลขที่ถูกต้อง
+    if (isNaN(age) || age < 0) {
+        alert("กรุณากรอกอายุที่ถูกต้อง (ต้องเป็นตัวเลขที่มากกว่าหรือเท่ากับ 0)");
+        return;
+    }
+
+    // จัดกลุ่มอายุตามช่วงชีวิตจริง
+    if (age >= 0 && age <= 2) {
+        result = "ทารก";
+    } else if (age <= 12) {
         result = "เด็ก";
-    } else if (age < 20) {
+    } else if (age <= 19) {
         result = "วัยรุ่น";
+    } else if (age <= 35) {
+        result = "วัยหนุ่มสาว";
+    } else if (age <= 50) {
+        result = "วัยกลางคน";
+    } else if (age <= 65) {
+        result = "วัยทอง";
     } else {
-        result = "ผู้ใหญ่";
+        result = "ผู้สูงอายุ";
     }
 
     document.getElementById("ageResult").textContent = `คุณเป็น: ${result}`;
 }
 
-// ตรวจสอบฟอร์ม
-document.getElementById("userForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    let email = document.getElementById("email").value;
-    if (!email.includes("@") || !email.endsWith(".com")) {
-        alert("กรุณาใส่อีเมลให้ถูกต้อง");
-        return;
-    }
-    
-    alert("ส่งข้อมูลสำเร็จ!");
-});
 
 // โหลด To-Do List จาก LocalStorage
 document.addEventListener("DOMContentLoaded", loadTasks);
@@ -102,6 +106,11 @@ function removeTask(task) {
     tasks = tasks.filter(t => t !== task);
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+if (tasks.includes(taskText)) {
+    alert("งานนี้มีอยู่แล้ว!");
+    return;
+}
+
 
 // คำนวณพื้นที่วงกลม
 function calculateCircleArea() {
